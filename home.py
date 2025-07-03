@@ -24,6 +24,7 @@ st.markdown(
     ### 🧭 Navigation:
     Use the **sidebar** on the left to:
     - Pull live market data from **Chain**
+    - Construct **Strangle** strategies
     - Read the full **Usage Guide**
 
     ---

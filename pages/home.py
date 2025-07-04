@@ -10,7 +10,7 @@ st.markdown("---")
 
 st.markdown(
     """
-    Welcome to the **Delta Desk** – a streamlined tool for retail and professional traders looking to visualize
+    Welcome to **Delta Desk** – a streamlined tool for retail and professional traders looking to visualize
     options strategies and analyze live options chain data.
 
     ### 🚀 What You Can Do:

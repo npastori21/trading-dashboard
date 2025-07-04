@@ -1,7 +1,5 @@
 import streamlit as st
-from display import usage_sidebar
 
-usage_sidebar()
 st.set_page_config(page_title="Usage Guide", layout="wide")
 st.title("📘 How to Use the Trading Dashboard")
 st.markdown("---")

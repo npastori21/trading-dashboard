@@ -1,9 +1,7 @@
 import streamlit as st
-from display import home_sidebar
 
 
 
-home_sidebar()
 
 st.set_page_config(page_title="Home", page_icon="🪙")
 

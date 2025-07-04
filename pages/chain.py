@@ -8,11 +8,10 @@ from streamlit_autorefresh import st_autorefresh
 from scipy.stats import norm
 from bs4 import BeautifulSoup
 from api import get_underlying_price, get_last_year_pricing, get_rfr, get_strike, get_vol, build_chain, calls_and_puts, build_chain_cached
-from display import chain_sidebar, sell_strangle_payoff, plot_strangle_payoff
+from display import sell_strangle_payoff, plot_strangle_payoff
 
 pd.options.plotting.backend = 'plotly'
 
-chain_sidebar()
 
 st.set_page_config(
     page_title="Chain",

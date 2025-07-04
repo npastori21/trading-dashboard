@@ -1,11 +1,10 @@
 import streamlit as st
 from api import get_underlying_price
-from display import plot_strangle_payoff, strangle_sidebar
+from display import plot_strangle_payoff
 
 API_KEY = st.secrets["API_KEY"]
 
 st.set_page_config(page_title="Strangle Strategy", page_icon="🔃")
-strangle_sidebar()
 
 st.title("Strangle Strategy Payoff Visualizer")
 

@@ -1,4 +1,4 @@
-# 📈 Trading Dashboard
+# 📈 Delta Desk
 
 A streamlined Streamlit web app for visualizing options strategies and analyzing real-time options chain data. Built for both retail and professional traders looking for fast, interactive insights.
 

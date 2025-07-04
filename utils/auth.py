@@ -14,7 +14,8 @@ def check_password():
             submitted = st.form_submit_button("Login")
 
             if submitted:
-                if verify_password(password, submitted):
+                stored_hash = st.secrets["PW"]
+                if verify_password(password, stored_hash):
                     st.session_state.authenticated = True
                     st.experimental_rerun()
                 else:

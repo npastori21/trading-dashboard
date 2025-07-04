@@ -1,24 +1,27 @@
 import streamlit as st
 import hashlib
 
+def verify_password(password_input: str, stored_hash: str) -> bool:
+    return hashlib.sha256(password_input.encode()).hexdigest() == stored_hash
 
 def check_password():
     if "authenticated" not in st.session_state:
-        st.session_state["authenticated"] = False
+        st.session_state.authenticated = False
 
-    if not st.session_state["authenticated"]:
-        st.subheader("🔒 Enter Password to Access App")
-        password_input = st.text_input("Password", type="password")
-        if st.button("Submit"):
-            hashed_input = hashlib.sha256(password_input.encode()).hexdigest()
-            if hashed_input == st.secrets["PW"]:
-                st.session_state["authenticated"] = True
-                st.success("✅ Access Granted")
-                st.experimental_rerun()
-            else:
-                st.error("❌ Incorrect Password")
+    if not st.session_state.authenticated:
+        with st.form("login_form"):
+            password = st.text_input("Enter password", type="password")
+            submitted = st.form_submit_button("Login")
+
+            if submitted:
+                stored_hash = "your_stored_hashed_pw"  # Move this out for security
+                if verify_password(password, stored_hash):
+                    st.session_state.authenticated = True
+                    st.experimental_rerun()
+                else:
+                    st.error("❌ Incorrect password")
         st.stop()
-
+        
 def check_auth():
     if "authenticated" not in st.session_state or not st.session_state.authenticated:
         st.warning("🔒 Please log in to access this page.")

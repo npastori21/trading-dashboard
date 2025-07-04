@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.set_page_config(page_title="Usage Guide", layout="wide")
-st.title("📘 How to Use the Trading Dashboard")
+st.title("📘 How to Use Delta Desk")
 st.markdown("---")
 
 st.header("🔐 Overview")

@@ -14,14 +14,13 @@ def check_password():
             submitted = st.form_submit_button("Login")
 
             if submitted:
-                stored_hash = "your_stored_hashed_pw"  # Move this out for security
-                if verify_password(password, stored_hash):
+                if verify_password(password, submitted):
                     st.session_state.authenticated = True
                     st.experimental_rerun()
                 else:
                     st.error("❌ Incorrect password")
         st.stop()
-        
+
 def check_auth():
     if "authenticated" not in st.session_state or not st.session_state.authenticated:
         st.warning("🔒 Please log in to access this page.")

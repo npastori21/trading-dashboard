@@ -7,9 +7,6 @@ usage_page = st.Page('pages/usage.py', title='Usage', icon='🧠')
 
 pg = st.navigation([home_page, chain_page, strangle_page, usage_page])
 
-pg.run()
-
-
 st.title("📈 Trading Dashboard")
 st.markdown("---")
 
@@ -35,3 +32,5 @@ st.markdown(
     This app is powered by a third-party financial data API. Your API key is stored securely using **Streamlit Secrets**.
     """
 )
+
+pg.run()

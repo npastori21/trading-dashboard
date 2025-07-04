@@ -17,7 +17,7 @@ def check_password():
                 stored_hash = st.secrets["PW"]
                 if verify_password(password, stored_hash):
                     st.session_state.authenticated = True
-                    st.experimental_rerun()
+                    st.rerun()
                 else:
                     st.error("❌ Incorrect password")
         st.stop()

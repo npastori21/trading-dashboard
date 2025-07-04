@@ -1,5 +1,7 @@
 import streamlit as st
+from utils.auth import check_auth
 
+check_auth()
 st.set_page_config(page_title="Usage Guide", page_icon="📘")
 
 st.title("📘 Usage Guide – Delta Desk")

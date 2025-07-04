@@ -1,7 +1,9 @@
 import streamlit as st
+from utils.auth import check_auth
 from api.price import get_underlying_price
 from display import plot_strangle_payoff
 
+check_auth()
 st.set_page_config(page_title="Strangle Strategy", page_icon="🔃")
 st.title("🔃 Strangle Strategy Payoff Visualizer")
 

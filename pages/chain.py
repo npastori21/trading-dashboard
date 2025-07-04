@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
 import datetime
-
+from utils.auth import check_auth
 from api.chain_builder import build_chain
 
+check_auth()
 # Optional: Customize the page
 st.set_page_config(page_title="Options Chain Builder", layout="wide")
 st.title("📊 Options Chain Visualizer")

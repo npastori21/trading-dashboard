@@ -1,9 +1,10 @@
 import streamlit as st
-
+from utils.auth import check_password
 
 
 
 st.set_page_config(page_title="Home", page_icon="🪙")
+check_password()
 
 st.title("📈 Delta Desk")
 st.markdown("---")

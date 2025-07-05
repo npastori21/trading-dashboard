@@ -1,4 +1,5 @@
 import streamlit as st
+import datetime
 from utils.auth import check_password
 
 
@@ -30,4 +31,12 @@ st.markdown(
     ### 🛡️ Secure API Integration:
     This app is powered by a third-party financial data API. Your API key is stored securely using **Streamlit Secrets**.
     """
+)
+
+year = datetime.datetime.now().year
+st.markdown(
+    f"<p style='text-align: center; font-size: 0.85em; color: gray; padding-top: 2em;'>"
+    f"© {year} Nicholas Pastori. All rights reserved."
+    f"</p>",
+    unsafe_allow_html=True
 )

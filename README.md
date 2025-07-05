@@ -40,5 +40,5 @@ Delta Desk is a proprietary tool built to:
 - Model Greeks (delta, gamma, theta, vega) over time and spot price
 - Educate users about risk and reward in short options strategies
 
-For inquiries about collaboration, licensing, or beta testing access, please contact **Nicholas Pastori**.
+For inquiries about collaboration, licensing, or beta testing access, please contact **Nicholas Pastori(npastori@umich.edu)**.
 

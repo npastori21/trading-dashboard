@@ -28,7 +28,7 @@ All code, design, branding, and ideas in this repository are the **intellectual 
 
 **Unauthorized use, redistribution, or commercialization of this application will result in legal action.** The code is **not open source**, even if publicly viewable.
 
-All rights under the **U.S. Copyright Act** and **international law** are reserved.
+All rights under the **U.S. Copyright Act** and **International Law** are reserved.
 
 ---
 

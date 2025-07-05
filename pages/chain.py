@@ -93,8 +93,8 @@ if "chain_df" in st.session_state:
         col1, col2 = st.columns(2)
         with col1:
             st.subheader("📞 Calls")
-            st.dataframe(calls, use_container_width=True)
+            st.dataframe(calls.drop("Option Type", axis=1), use_container_width=True)
         with col2:
             st.subheader("📉 Puts")
-            st.dataframe(puts, use_container_width=True)
+            st.dataframe(puts.drop("Option Type", axis=1), use_container_width=True)
 

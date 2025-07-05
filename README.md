@@ -1,37 +1,44 @@
-# 📈 Delta Desk
+# ⚠️ Delta Desk (Beta)
 
-A streamlined Streamlit web app for visualizing options strategies and analyzing real-time options chain data. Built for both retail and professional traders looking for fast, interactive insights.
+Welcome to the public **beta version** of **Delta Desk**, an options analytics dashboard designed for visualizing live chains and simulating options strategies such as strangles and Greeks over time.
 
----
-
-## 🚀 Features
-
-- **Sell Strangle Visualizer**  
-  Simulate a sell strangle strategy by adjusting strike prices, premiums, and quantities. Visualize P&L across expiration prices using interactive Plotly charts.
-
-- **Real-Time Options Chain**  
-  Fetch and explore live market data with customizable expiration dates and strike intervals.
-
-- **Usage Guide**  
-  Get detailed help on how to use the platform and interpret strategy results.
-
-- **Secure API Integration**  
-  API keys are safely stored using [Streamlit Secrets](https://docs.streamlit.io/streamlit-community-cloud/deploy-your-app/secrets-management).
+> **NOTE:** This repository is for **viewing and feedback purposes only**. The code, logic, and design contained within are protected by copyright and not intended for reuse or redistribution.
 
 ---
 
-## 🛠️ Tech Stack
+## 🚫 Legal Notice
 
-- [Streamlit](https://streamlit.io/) – Interactive web UI
-- [Plotly](https://plotly.com/python/) – For dynamic, interactive charts
-- Python – Data handling and API interaction
-- Financial Data API – Live options chain data (via secure API key)
+All code, design, branding, and ideas in this repository are the **intellectual property of Nicholas Pastori**.
+
+> **© Nicholas Pastori. All rights reserved.**
+
+### ❌ You MAY NOT:
+- Copy, clone, or download this repository for personal or commercial use.
+- Reuse any part of this project in your own applications or trading tools.
+- Distribute, license, or attempt to sell any derivatives of this application.
+- Deploy this application in any form under your own or any third-party brand.
+
+### ✅ You MAY:
+- View the code to provide feedback during the beta testing phase.
+- Share the link to this repository with others for review purposes only.
 
 ---
 
-## 🧠 Pages
+## 🔒 Copyright Enforcement
 
-- 🏠 Home – Overview of the dashboard
-- 📊 Chain – Live options chain by ticker
-- 🏦 Strangle – Build and visualize sell strangle strategy
-- 🧠 Usage – Help and usage instructions
+**Unauthorized use, redistribution, or commercialization of this application will result in legal action.** The code is **not open source**, even if publicly viewable.
+
+All rights under the **U.S. Copyright Act** and **international law** are reserved.
+
+---
+
+## ℹ️ About Delta Desk
+
+Delta Desk is a proprietary tool built to:
+- Simulate and visualize options payoff curves
+- Explore live option chains
+- Model Greeks (delta, gamma, theta, vega) over time and spot price
+- Educate users about risk and reward in short options strategies
+
+For inquiries about collaboration, licensing, or beta testing access, please contact **Nicholas Pastori**.
+

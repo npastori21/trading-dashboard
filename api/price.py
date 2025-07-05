@@ -1,6 +1,7 @@
 import pandas as pd
 import datetime
 from api.client import get
+from utils.logger import log_error
 
 def get_underlying_price(ticker: str) -> float:
     try:
@@ -10,7 +11,8 @@ def get_underlying_price(ticker: str) -> float:
             "extended": "true"
         })
         return data["series"][0]["close"]
-    except Exception:
+    except Exception as e:
+        log_error(e)
         return 0
 
 def get_last_year_pricing(ticker: str) -> pd.DataFrame:
@@ -30,4 +32,5 @@ def get_last_year_pricing(ticker: str) -> pd.DataFrame:
         return pricing[["close"]].iloc[-253:]  # ~1 trading year
     except Exception as e:
         print(f"[ERROR] Failed to get historical pricing: {e}")
+        log_error(e)
         return pd.DataFrame()

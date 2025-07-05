@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from utils.logger import log_error
 
 def get_rfr() -> float:
     """Scrape the 10-year Treasury yield from FRED."""
@@ -17,4 +18,5 @@ def get_rfr() -> float:
         return float(span.text) / 100
     except Exception as e:
         print(f"[ERROR] Failed to fetch risk-free rate: {e}")
+        log_error(e)
         return 0.05  # fallback rate

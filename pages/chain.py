@@ -1,8 +1,13 @@
 import streamlit as st
 import pandas as pd
 import datetime
+import time
 from utils.auth import check_auth
 from api.chain_builder import build_chain
+
+COOLDOWN_SECONDS = 10
+if "last_request_time" not in st.session_state:
+    st.session_state.last_request_time = 0
 
 check_auth()
 # Optional: Customize the page
@@ -44,14 +49,24 @@ def load_and_display_chain(ticker, low, high, interval):
 
 # --- On submit: build and store chain
 if st.button("🔍 Build Chain"):
+    now = time.time()
+    elapsed = now - st.session_state.last_request_time
     if not validate_strike_range(low_strike, high_strike):
         st.error("⚠️ High Strike must be greater than Low Strike.")
     else:
-        chain_df = build_chain_cached(ticker, low_strike, high_strike, interval)
-        if chain_df is not None and not chain_df.empty:
-            st.session_state.chain_df = chain_df
+        if elapsed < COOLDOWN_SECONDS:
+            wait_time = int(COOLDOWN_SECONDS - elapsed)
+            st.warning(f"Please wait {wait_time} seconds before submitting again.")
         else:
-            st.warning("No chain data found.")
+            try:
+                chain_df = build_chain_cached(ticker, low_strike, high_strike, interval)
+                st.session_state.last_request_time = now
+            except Exception as e:
+                chain_df = pd.DataFrame()
+            if chain_df is not None and not chain_df.empty:
+                st.session_state.chain_df = chain_df
+            else:
+                st.warning("No chain data found.")
 
 # --- Show filters and tables only if chain is cached
 if "chain_df" in st.session_state:

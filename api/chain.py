@@ -1,5 +1,6 @@
 import pandas as pd
 from api.client import get
+from utils.logger import log_error
 
 def get_strike(ticker: str, strike: float) -> pd.DataFrame:
     """Fetch option chain data for a given ticker and strike price."""
@@ -17,4 +18,5 @@ def get_strike(ticker: str, strike: float) -> pd.DataFrame:
         return chain
     except Exception as e:
         print(f"[ERROR] Failed to fetch strike {strike} for {ticker}: {e}")
+        log_error(e)
         return pd.DataFrame()

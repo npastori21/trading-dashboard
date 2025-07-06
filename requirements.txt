@@ -6,3 +6,4 @@ requests
 scipy
 streamlit
 streamlit_autorefresh
+streamlit-aggrid

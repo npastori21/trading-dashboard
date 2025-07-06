@@ -8,7 +8,8 @@ st.markdown("---")
 st.markdown("""
 ### Overview
 
-Delta Desk is a subscription-based financial analytics platform. By subscribing to our services, you agree to the following terms regarding pricing, payments, renewals, and cancellations.
+Delta Desk is a subscription-based financial analytics platform. By subscribing to our services, you agree to the following terms regarding pricing, payments, renewals, and cancellations. Access subscription sign-up here 
+(https://buy.stripe.com/cNi7sMfbygdL3ezffj1wY00)
 
 ---
 
@@ -35,7 +36,7 @@ All prices are displayed in USD and exclude any applicable taxes.
 
 - You may cancel your subscription at any time from your account portal.
 - Canceling prevents future billing; however, no partial refunds are issued for the current billing period.
-- In exceptional cases, you may contact support at [your support email] to request a refund, which will be evaluated at our sole discretion.
+- In exceptional cases, you may contact support at npastori@umich.edu to request a refund, which will be evaluated at our sole discretion.
 
 ---
 

@@ -1,66 +1,83 @@
 import streamlit as st
-import plotly.graph_objects as go
-import numpy as np
+from utils.display import (
+    display_covered_call,
+    display_cash_sec_put,
+    display_long_call,
+    display_long_put,
+    display_sell_call,
+    display_sell_put
+)
 
-st.set_page_config(page_title="Options 101", page_icon="📘")
-st.title("📘 Options 101")
+st.set_page_config(page_title="📘 Options Education", page_icon="📘")
+st.title("📘 Options Education")
+st.markdown("---")
+
+st.header("📖 Key Terms")
 
 st.markdown("""
-Welcome to the educational section of **Delta Desk**! Whether you're new to options or need a refresher, this guide covers the basics you need to navigate the platform with confidence.
+Understanding options begins with the fundamentals. Here's a glossary of important terms:
+
+- **Call Option**: The right (but not the obligation) to **buy** an asset at a specific price (strike) before expiration.
+- **Put Option**: The right (but not the obligation) to **sell** an asset at a specific price (strike) before expiration.
+- **Strike Price**: The price at which the option allows you to buy (call) or sell (put) the underlying asset.
+- **Expiration Date**: The last date the option can be exercised.
+- **Premium**: The cost to buy an option — paid upfront by the buyer to the seller.
+- **Intrinsic Value**: The amount an option is **in-the-money**. For example, if a stock is \\$110 and a call has a strike of \\$100, its intrinsic value is \\$10.
+- **Time Value**: The portion of the premium that reflects the time left until expiration.
+- **In the Money (ITM)**: When exercising the option would result in a profit.
+- **Out of the Money (OTM)**: When exercising the option would result in a loss.
+- **Delta**: Sensitivity of the option price to changes in the underlying asset's price.
 """)
 
-# Glossary
-st.header("🔑 Key Option Terms")
-terms = {
-    "Call Option": "Gives the buyer the right (not obligation) to **buy** a stock at a strike price before expiration.",
-    "Put Option": "Gives the buyer the right (not obligation) to **sell** a stock at a strike price before expiration.",
-    "Strike Price": "The fixed price at which the option can be exercised.",
-    "Expiration": "The last date on which the option can be exercised.",
-    "Premium": "The cost to purchase an option contract.",
-    "Implied Volatility (IV)": "Market's expectation of stock volatility over the life of the option.",
-    "Delta": "Rate of change of option price with respect to stock price.",
-    "Theta": "Rate of time decay in option value.",
-    "Gamma": "Rate of change of Delta with respect to stock price.",
-    "Vega": "Sensitivity of option price to changes in implied volatility.",
-    "Rho": "Sensitivity of option price to changes in interest rates."
-}
+st.markdown("---")
+st.header("🧠 Basic Option Strategies")
 
-for term, definition in terms.items():
-    with st.expander(term):
-        st.write(definition)
+st.markdown("""
+Below are six foundational strategies in options trading. Each includes a payoff chart and an explanation to help you understand 
+the mechanics and risk profiles.
+""")
 
-# Strategy Examples
-st.header("📊 Basic Option Strategies")
+st.subheader("1️⃣ Covered Call")
+st.markdown("""
+A **covered call** is created by holding a long position in a stock and selling a call option on the same stock. This strategy generates income 
+but limits the upside if the stock rallies.
+""")
+display_covered_call()
 
-strategy_examples = [
-    {
-        "name": "Strangle",
-        "description": "Sell a call above and a put below the current price to profit if the stock stays in range.",
-        "call_strike": 110,
-        "put_strike": 90,
-        "spot_range": (70, 130)
-    },
-    {
-        "name": "Straddle",
-        "description": "Sell both a call and a put at the same strike — ideal when expecting low volatility.",
-        "call_strike": 100,
-        "put_strike": 100,
-        "spot_range": (70, 130)
-    }
-]
+st.subheader("2️⃣ Cash-Secured Put")
+st.markdown("""
+A **cash-secured put** involves selling a put option while holding enough cash to buy the stock at the strike price. It’s a strategy used 
+to generate income or acquire stock at a discount.
+""")
+display_cash_sec_put()
 
-def payoff_strangle(S, call_strike, put_strike, premium=5):
-    return -np.maximum(S - call_strike, 0) - np.maximum(put_strike - S, 0) + 2 * premium
+st.subheader("3️⃣ Long Call")
+st.markdown("""
+A **long call** is a bullish strategy where you buy a call option to profit from a rise in the stock price. Your loss is limited to the 
+premium paid, and the upside is theoretically unlimited.
+""")
+display_long_call()
 
-def render_strategy_chart(name, description, call_strike, put_strike, spot_range):
-    st.subheader(f"📈 {name}")
-    st.caption(description)
-    S = np.linspace(*spot_range, 300)
-    payoff = payoff_strangle(S, call_strike, put_strike)
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=S, y=payoff, mode='lines', name='P/L'))
-    fig.update_layout(title=f"{name} Payoff at Expiration", xaxis_title="Stock Price", yaxis_title="Profit / Loss")
-    st.plotly_chart(fig, use_container_width=True)
+st.subheader("4️⃣ Long Put")
+st.markdown("""
+A **long put** is a bearish strategy where you buy a put option to profit from a drop in the stock price. It’s commonly used as a hedge 
+or speculative bet against a downturn.
+""")
+display_long_put()
 
-for strat in strategy_examples:
-    render_strategy_chart(**strat)
+st.subheader("5️⃣ Naked Call Sell")
+st.markdown("""
+Selling a **naked call** means selling a call option without owning the underlying stock. This is a high-risk strategy, as losses are 
+theoretically unlimited if the stock rallies sharply.
+""")
+display_sell_call()
+
+st.subheader("6️⃣ Naked Put Sell")
+st.markdown("""
+Selling a **naked put** is a moderately bullish strategy. You collect a premium and hope the stock stays above the strike. If it falls 
+below, you may be obligated to buy the stock at a higher price than market value.
+""")
+display_sell_put()
+
+st.markdown("---")
+st.markdown("© 2025 Nicholas Pastori. All rights reserved.")
